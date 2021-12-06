@@ -1,6 +1,7 @@
 defmodule RockeliveryWeb.Router do
   use RockeliveryWeb, :router
 
+  # Plugar configurações extras
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -9,6 +10,7 @@ defmodule RockeliveryWeb.Router do
     pipe_through :api
 
     get "/", WelcomeController, :index
+    resources "/users", UsersController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development
