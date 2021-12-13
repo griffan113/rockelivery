@@ -9,10 +9,18 @@ defmodule RockeliveryWeb.UsersController do
   action_fallback FallbackController
 
   def create(conn, params) do
-    with %User{} = user <- create_user(params) do
+    with {:ok, %User{} = user} <- create_user(params) do
       conn
       |> put_status(:created)
       |> render("create.json", user: user)
+    end
+  end
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, %User{} = user} <- get_user(id) do
+      conn
+      |> put_status(:ok)
+      |> render("show.json", user: user)
     end
   end
 end

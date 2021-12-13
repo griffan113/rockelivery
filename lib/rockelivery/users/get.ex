@@ -4,7 +4,7 @@ defmodule Rockelivery.Users.Get do
 
   def by_id(id) do
     case UUID.cast(id) do
-      :error -> {:error, %{status: :bad_request, result: "Id must be an UUID"}}
+      :error -> {:error, %{status: :bad_request, result: "ID must be an UUID"}}
       {:ok, uuid} -> get(uuid)
     end
   end
