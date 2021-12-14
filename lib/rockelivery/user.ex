@@ -9,8 +9,10 @@ defmodule Rockelivery.User do
 
   @required_params [:age, :address, :cep, :cpf, :email, :password, :name]
 
+  @update_params @required_params -- [:password]
+
   # Igual class-validator
-  @derive {Jason.Encoder, only: [:id, :age, :cpf, :address, :email]}
+  @derive {Jason.Encoder, only: [:id, :name, :age, :cpf, :address, :email]}
 
   schema "users" do
     field :address, :string
@@ -29,6 +31,22 @@ defmodule Rockelivery.User do
     %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
+    |> validate_length(:password_hash, min: 6)
+    |> validate_length(:cep, is: 8)
+    |> validate_length(:cpf, is: 11)
+    |> validate_format(:email, ~r/@/)
+    |> validate_number(:age, greater_than_or_equal_to: 18)
+    |> unique_constraint([:email])
+    |> unique_constraint([:cpf])
+    |> put_password_hash()
+
+    # Faz a validação dos campos baseado nos parametros recebidos
+  end
+
+  def changeset(struct, params) do
+    struct
+    |> cast(params, @update_params)
+    |> validate_required(@update_params)
     |> validate_length(:password_hash, min: 6)
     |> validate_length(:cep, is: 8)
     |> validate_length(:cpf, is: 11)
