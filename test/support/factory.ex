@@ -12,4 +12,16 @@ defmodule Rockelivery.Factory do
       name: "John Doe"
     }
   end
+
+  def user_string_params_factory do
+    %{
+      "address" => "Rua",
+      "age" => 18,
+      "cep" => "09070410",
+      "cpf" => "12345678911",
+      "email" => "johndoe@email.com",
+      "password" => "12345678",
+      "name" => "John Doe"
+    }
+  end
 end
