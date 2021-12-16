@@ -47,7 +47,7 @@ defmodule Rockelivery.User do
     struct
     |> cast(params, @update_params)
     |> validate_required(@update_params)
-    |> validate_length(:password_hash, min: 6)
+    |> validate_length(:password, min: 6)
     |> validate_length(:cep, is: 8)
     |> validate_length(:cpf, is: 11)
     |> validate_format(:email, ~r/@/)
@@ -60,9 +60,7 @@ defmodule Rockelivery.User do
   end
 
   defp put_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
-    changeset = change(changeset, Pbkdf2.add_hash(password))
-
-    IO.inspect(changeset)
+    change(changeset, Pbkdf2.add_hash(password))
   end
 
   defp put_password_hash(changeset), do: changeset
