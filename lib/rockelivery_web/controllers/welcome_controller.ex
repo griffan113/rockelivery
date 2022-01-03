@@ -1,7 +1,7 @@
 defmodule RockeliveryWeb.WelcomeController do
   use RockeliveryWeb, :controller
 
-  def index(conn, params) do
+  def index(conn) do
     conn
     |> put_status(:ok)
     |> json(%{message: "Welcome"})

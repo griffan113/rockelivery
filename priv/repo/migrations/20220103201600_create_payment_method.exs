@@ -1,0 +1,7 @@
+defmodule Rockelivery.Repo.Migrations.CreatePaymentMethod do
+  use Ecto.Migration
+
+  def change do
+
+  end
+end
