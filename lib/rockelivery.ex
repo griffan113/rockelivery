@@ -6,6 +6,7 @@ defmodule Rockelivery do
   alias Rockelivery.Users.Index, as: UserIndex
 
   alias Rockelivery.Items.Create, as: ItemCreate
+  alias Rockelivery.Items.Update, as: ItemUpdate
 
   defdelegate index_users, to: UserIndex, as: :call
   defdelegate delete_user(id), to: UserDelete, as: :call
@@ -14,4 +15,5 @@ defmodule Rockelivery do
   defdelegate update_user(params), to: UserUpdate, as: :call
 
   defdelegate create_item(params), to: ItemCreate, as: :call
+  defdelegate update_item(params), to: ItemUpdate, as: :call
 end

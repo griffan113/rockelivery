@@ -7,8 +7,6 @@ defmodule Rockelivery.Item do
 
   @required_params [:category, :description, :price, :photo]
 
-  @update_params @required_params -- [:password]
-
   @items_category_enum [:food, :drink, :desert]
 
   # Igual class-validator
@@ -35,8 +33,8 @@ defmodule Rockelivery.Item do
 
   def changeset(struct, params) do
     struct
-    |> cast(params, @update_params)
-    |> validate_required(@update_params)
+    |> cast(params, @required_params)
+    |> validate_required(@required_params)
     |> validate_length(:description, min: 6)
     |> validate_number(:price, greater_than: 0)
 

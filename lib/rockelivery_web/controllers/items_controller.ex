@@ -15,4 +15,12 @@ defmodule RockeliveryWeb.ItemsController do
       |> render("create.json", item: item)
     end
   end
+
+  def update(conn, params) do
+    with {:ok, %Item{} = item} <- update_item(params) do
+      conn
+      |> put_status(:ok)
+      |> render("item.json", item: item)
+    end
+  end
 end
