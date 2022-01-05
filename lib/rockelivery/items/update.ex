@@ -9,8 +9,6 @@ defmodule Rockelivery.Items.Update do
   end
 
   defp do_update(item, params) do
-    IO.inspect(Item.changeset(item, params), label: "#################")
-
     item
     |> Item.changeset(params)
     |> Repo.update()

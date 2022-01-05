@@ -11,4 +11,6 @@ defmodule RockeliveryWeb.ItemsView do
   end
 
   def render("item.json", %{item: %Item{} = item}), do: %{item: item}
+
+  def render("items.json", %{items: items}), do: %{items: items}
 end
