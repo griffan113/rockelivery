@@ -6,6 +6,7 @@ defmodule Rockelivery.Order do
   alias Rockelivery.{Item, User}
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   @required_params [:address, :comments, :payment_method, :user_id]
 
@@ -31,7 +32,7 @@ defmodule Rockelivery.Order do
     |> put_assoc(:items, items)
     |> validate_required(@required_params)
     |> validate_length(:address, min: 10)
-    |> validate_number(:comments, min: 6)
+    |> validate_length(:comments, min: 6)
 
     # put_assoc -> Os items já existem, eles já estão pre-configurados |> Relaciona os items já cadastrados com o pedido
     # Faz a validação dos campos baseado nos parametros recebidos
