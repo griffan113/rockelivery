@@ -12,5 +12,5 @@ defmodule RockeliveryWeb.OrdersView do
 
   def render("order.json", %{order: %Order{} = order}), do: %{order: order}
 
-  def render("orders.json", %{orders: orders}), do: %{orders: orders}
+  def render("index.json", %{orders: orders}), do: %{orders: orders}
 end

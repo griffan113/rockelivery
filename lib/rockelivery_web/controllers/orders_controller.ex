@@ -11,8 +11,14 @@ defmodule RockeliveryWeb.OrdersController do
   def create(conn, params) do
     with {:ok, %Order{} = order} <- create_order(params) do
       conn
-      |> put_status(:ok)
+      |> put_status(:created)
       |> render("create.json", order: order)
     end
+  end
+
+  def index(conn, _params) do
+    conn
+    |> put_status(:ok)
+    |> render("index.json", orders: index_orders())
   end
 end
