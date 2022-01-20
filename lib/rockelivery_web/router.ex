@@ -16,6 +16,8 @@ defmodule RockeliveryWeb.Router do
     resources "/users", UsersController, except: [:new, :edit]
 
     resources "/items", ItemsController, only: [:index, :show, :update, :delete, :create]
+
+    post "/orders", OrdersController, :create
   end
 
   # Enables LiveDashboard only for development

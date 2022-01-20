@@ -13,7 +13,7 @@ defmodule Rockelivery.Order do
   @payment_method_enum [:money, :credit_card, :debit_card]
 
   # Igual class-validator
-  @derive {Jason.Encoder, only: @required_params ++ [:id]}
+  @derive {Jason.Encoder, only: @required_params ++ [:id, :items]}
 
   schema "orders" do
     field :payment_method, Ecto.Enum, values: @payment_method_enum
