@@ -13,7 +13,7 @@ defmodule Rockelivery.User do
   @update_params @required_params -- [:password]
 
   # Igual class-validator
-  @derive {Jason.Encoder, only: [:id, :name, :age, :cpf, :address, :email]}
+  @derive {Jason.Encoder, only: [:id, :name, :age, :cpf, :address, :email, :orders]}
 
   schema "users" do
     field :address, :string
@@ -25,7 +25,7 @@ defmodule Rockelivery.User do
     field :password_hash, :string
     field :name, :string
 
-    has_many :orders, Order
+    has_many :orders, Order, on_delete: :delete_all
 
     timestamps()
   end
