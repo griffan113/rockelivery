@@ -3,5 +3,6 @@ defmodule Rockelivery.Users.Index do
 
   def call do
     Repo.all(User)
+    |> Repo.preload(:orders)
   end
 end
