@@ -28,7 +28,7 @@ defmodule Rockelivery.UserTest do
     end
 
     test "returns an error case the changeset is invalid" do
-      params = params = build(:user_params, %{age: 15})
+      params = params = build(:user_string_params, %{"age" => 15})
 
       response = User.changeset(params)
 

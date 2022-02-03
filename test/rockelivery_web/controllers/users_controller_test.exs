@@ -30,7 +30,8 @@ defmodule RockeliveryWeb.UsersControllerTest do
       params = %{
         "address" => "Rua",
         "age" => 18,
-        "cpf" => "12345678911"
+        "cpf" => "12345678911",
+        "cep" => "09070410"
       }
 
       response =

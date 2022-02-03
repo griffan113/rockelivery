@@ -8,7 +8,7 @@ defmodule Rockelivery.Users.CreateTest do
 
   describe "call/1" do
     test "creates the user" do
-      params = build(:user_params)
+      params = build(:user_string_params)
 
       response = Create.call(params)
 
@@ -16,7 +16,7 @@ defmodule Rockelivery.Users.CreateTest do
     end
 
     test "returns an error if there are invalid params" do
-      params = build(:user_params, %{age: 15})
+      params = build(:user_string_params, %{"age" => 15})
 
       response = Create.call(params)
 

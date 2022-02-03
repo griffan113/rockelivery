@@ -13,7 +13,7 @@ defmodule Rockelivery.User do
   @update_params @required_params -- [:password]
 
   # Igual class-validator
-  @derive {Jason.Encoder, only: [:id, :name, :age, :cpf, :address, :email, :orders]}
+  @derive {Jason.Encoder, only: [:id, :name, :age, :cpf, :address, :email]}
 
   schema "users" do
     field :address, :string
