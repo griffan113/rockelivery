@@ -1,5 +1,5 @@
 defmodule RockeliveryWeb.Router do
-  alias RockeliveryWeb.Plugs.UUIDChecker
+  alias RockeliveryWeb.Plugs.{UUIDChecker, RateLimiter}
 
   use RockeliveryWeb, :router
 
@@ -7,6 +7,7 @@ defmodule RockeliveryWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
     plug UUIDChecker
+    plug RateLimiter
   end
 
   pipeline :auth do
