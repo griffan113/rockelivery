@@ -59,7 +59,8 @@ defmodule Rockelivery.MixProject do
       {:bypass, "~> 2.1", only: :test},
       {:mox, "~> 1.0", only: :test},
       {:guardian, "~> 2.0"},
-      {:hammer, "~> 6.0"}
+      {:hammer, "~> 6.0"},
+      {:cpf, "~> 1.1"}
     ]
   end
 
