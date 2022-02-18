@@ -15,7 +15,8 @@ defmodule Rockelivery.Users.Update do
     |> handle_update()
   end
 
-  defp handle_update({:ok, %User{} = updated_user}), do: {:ok, updated_user}
+  defp handle_update({:ok, %User{} = updated_user}),
+    do: {:ok, Repo.preload(updated_user, :orders)}
 
   defp handle_update({:error, changeset}), do: {:error, Error.build(:bad_request, changeset)}
 end
