@@ -10,7 +10,7 @@ defmodule RockeliveryWeb.Plugs.RateLimiter do
   def call(%Conn{req_headers: req_headers} = conn, _options) do
     req_headers
     |> find_authorization_header()
-    |> handle_token()
+    |> verify_token()
     |> handle_user_rate_limit(conn)
   end
 
@@ -26,18 +26,20 @@ defmodule RockeliveryWeb.Plugs.RateLimiter do
     end
   end
 
-  defp handle_token({:ok, {"authorization", token}}) do
+  defp verify_token({:ok, {"authorization", token}}) do
     [_bearer, parsed_token] = String.split(token, "Bearer ")
 
-    {:ok, %{"sub" => id}} = Guardian.decode_and_verify(parsed_token)
-
-    {:ok, id}
+    with {:ok, %{"sub" => id}} <- Guardian.decode_and_verify(parsed_token) do
+      {:ok, id}
+    else
+      error -> error
+    end
   end
 
-  defp handle_token({:error, error}), do: {:error, error}
+  defp verify_token({:error, error}), do: {:error, error}
 
   defp handle_user_rate_limit({:ok, id}, conn) do
-    case Hammer.check_rate("upload_file:#{id}", 60_000, 15) do
+    case Hammer.check_rate("app:#{id}", 60_000, 15) do
       {:allow, _count} ->
         conn
 
