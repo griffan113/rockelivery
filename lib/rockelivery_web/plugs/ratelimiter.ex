@@ -31,8 +31,6 @@ defmodule RockeliveryWeb.Plugs.RateLimiter do
 
     with {:ok, %{"sub" => id}} <- Guardian.decode_and_verify(parsed_token) do
       {:ok, id}
-    else
-      error -> error
     end
   end
 
