@@ -41,7 +41,7 @@ jobs:
         run: mix format --check-formatted
 
       - name: Run Credo
-        run:
+        run: mix credo --strict
 
       - name: Check coverage
         run: mix coveralls.json
