@@ -8,7 +8,7 @@ defmodule Rockelivery.Factory do
       address: "Rua",
       age: 18,
       cep: "09070410",
-      cpf: "12345678911",
+      cpf: "883.317.760-20",
       email: "johndoe@email.com",
       password: "12345678",
       name: "John Doe"
@@ -20,7 +20,7 @@ defmodule Rockelivery.Factory do
       "address" => "Rua",
       "age" => 18,
       "cep" => "09070410",
-      "cpf" => "12345678911",
+      "cpf" => "883.317.760-20",
       "email" => "johndoe@email.com",
       "password" => "12345678",
       "name" => "John Doe"
@@ -32,7 +32,7 @@ defmodule Rockelivery.Factory do
       address: "Rua",
       age: 18,
       cep: "09070410",
-      cpf: "12345678911",
+      cpf: "883.317.760-20",
       email: "johndoe@email.com",
       password: "12345678",
       name: "John Doe",

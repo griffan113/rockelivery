@@ -59,7 +59,7 @@ defmodule Rockelivery.User do
     |> validate_required(@update_params)
     |> validate_length(:password, min: 6)
     |> validate_length(:cep, is: 8)
-    |> validate_length(:cpf, is: 11)
+    |> validate_cpf(:cpf)
     |> validate_format(:email, ~r/@/)
     |> validate_number(:age, greater_than_or_equal_to: 18)
     |> unique_constraint([:email])
