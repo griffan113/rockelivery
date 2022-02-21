@@ -12,6 +12,13 @@ config :rockelivery, Rockelivery.Repo,
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
+# Configure the database for GitHub Actions
+if System.get_env("GITHUB_ACTIONS") do
+  config :rockelivery, rockelivery.Repo,
+    username: "postgres",
+    password: "postgres",
+end
+
 config :rockelivery, Rockelivery.Users.Create, via_cep_adapter: Rockelivery.ViaCep.ClientMock
 
 # We don't run a server during test. If one is required,
