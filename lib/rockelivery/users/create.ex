@@ -20,7 +20,7 @@ defmodule Rockelivery.Users.Create do
     |> Repo.insert()
   end
 
-  defp client() do
+  defp client do
     Application.fetch_env!(:rockelivery, __MODULE__)[:via_cep_adapter]
   end
 end

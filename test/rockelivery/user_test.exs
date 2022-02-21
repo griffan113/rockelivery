@@ -3,8 +3,8 @@ defmodule Rockelivery.UserTest do
 
   import Rockelivery.Factory
 
-  alias Rockelivery.User
   alias Ecto.Changeset
+  alias Rockelivery.User
 
   describe "changeset/2" do
     test "returns a valid changeset" do

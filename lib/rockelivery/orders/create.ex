@@ -1,9 +1,9 @@
 defmodule Rockelivery.Orders.Create do
   import Ecto.Query
 
-  alias Rockelivery.Users.Get, as: UserGet
   alias Rockelivery.Orders.ValidateAndMultiplyItems
-  alias Rockelivery.{Repo, Item, Order, Error, User}
+  alias Rockelivery.Users.Get, as: UserGet
+  alias Rockelivery.{User, Repo, Order, Item, Error}
 
   def call(params) do
     params

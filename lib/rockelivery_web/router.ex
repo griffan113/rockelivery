@@ -1,5 +1,5 @@
 defmodule RockeliveryWeb.Router do
-  alias RockeliveryWeb.Plugs.{UUIDChecker, RateLimiter}
+  alias RockeliveryWeb.Plugs.{RateLimiter, UUIDChecker}
 
   use RockeliveryWeb, :router
 

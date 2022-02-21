@@ -1,6 +1,6 @@
 defmodule RockeliveryWeb.Plugs.UUIDChecker do
-  alias Plug.Conn
   alias Ecto.UUID
+  alias Plug.Conn
 
   import Plug.Conn
 
