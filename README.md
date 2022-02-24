@@ -1,5 +1,6 @@
 # Rockelivery
 
+![ci](https://github.com/griffan113/rockelivery/actions/workflows/elixir.yml/badge.svg)
 [![codecov](https://codecov.io/gh/griffan113/rockelivery/branch/master/graph/badge.svg?token=NX5YKFGVU5)](https://codecov.io/gh/griffan113/rockelivery)
 
 To start your Phoenix server:
